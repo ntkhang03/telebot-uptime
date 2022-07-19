@@ -18,7 +18,6 @@ const PORT = process.env.PORT || 3000;
 const TELEGRAM_API = `https://api.telegram.org/bot${TOKEN}`;
 const URI = `/webhook/${TOKEN}`;
 
-
 const prefix = "/";
 
 const UptimeModel = require('./models/uptime.js');
@@ -92,7 +91,7 @@ function getUptime(uptime) {
 			if (!global.temp.uptimeFail[uptime.url]) {
 				global.temp.uptimeFail[uptime.url] = Date.now();
 				sendMessage(uptime.author, `❌ ${uptime.url} is down`);
-				console.log(`❌ ${uptime.url} is down`, err);
+				console.log(`❌ ${uptime.url} is down`);
 			}
 		})
 		.finally(async () => {
